@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Digital Twin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">🤖</div>
+        <div>
+          <div class="brand-title">Career Digital Twin</div>
+          <div class="brand-subtitle">Your Future. Powered by AI.</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a class="nav-item" data-route="dashboard" href="#dashboard">
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="nav-item" data-route="career-twin" href="#career-twin">
+          <span class="nav-icon">♙</span>
+          <span>My Career Twin</span>
+        </a>
+
+        <a class="nav-item" data-route="skills" href="#skills">
+          <span class="nav-icon">◎</span>
+          <span>Skill Gap Analysis</span>
+        </a>
+
+        <a class="nav-item" data-route="jobs" href="#jobs">
+          <span class="nav-icon">▣</span>
+          <span>Job Opportunities</span>
+        </a>
+
+        <a class="nav-item" data-route="learning" href="#learning">
+          <span class="nav-icon">▤</span>
+          <span>Learning &amp; Courses</span>
+        </a>
+
+        <a class="nav-item" data-route="market" href="#market">
+          <span class="nav-icon">⌁</span>
+          <span>Market Intelligence</span>
+        </a>
+
+        <a class="nav-item" data-route="simulation" href="#simulation">
+          <span class="nav-icon">◷</span>
+          <span>Future Simulation</span>
+        </a>
+
+        <a class="nav-item" data-route="feedback" href="#feedback">
+          <span class="nav-icon">♧</span>
+          <span>Recruiter Feedback</span>
+        </a>
+
+        <a class="nav-item" data-route="roadmap" href="#roadmap">
+          <span class="nav-icon">▱</span>
+          <span>Career Roadmap</span>
+        </a>
+
+        <a class="nav-item" data-route="settings" href="#settings">
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer-card">
+        <div class="copilot-orb">🤖</div>
+        <h3>Ask Career Copilot</h3>
+        <p>
+          Get personalized advice, answer your questions, and plan your next step.
+        </p>
+        <button class="primary-btn" data-action="open-copilot">
+          Chat Now <span>→</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+          ☰
+        </button>
+
+        <form class="search-wrap" id="searchForm">
+          <span>⌕</span>
+          <input
+            id="globalSearch"
+            type="search"
+            placeholder="Search jobs, skills, courses, or ask a question..."
+            autocomplete="off"
+          />
+        </form>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="notificationBtn" aria-label="Notifications">
+            ♧
+            <span class="notification-dot"></span>
+          </button>
+
+          <button class="profile-trigger" id="profileTrigger">
+            <span class="avatar">👩🏻</span>
+            <span>Priya Sharma</span>
+            <span>⌄</span>
+          </button>
+
+          <div class="profile-menu" id="profileMenu">
+            <a href="#career-twin">View profile</a>
+            <a href="#settings">Account settings</a>
+            <button data-action="show-toast">Sign out</button>
+          </div>
+        </div>
+      </header>
+
+      <div id="page"></div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="overlay" id="copilotOverlay">
+    <section class="copilot-dialog" role="dialog" aria-modal="true" aria-labelledby="copilotTitle">
+      <header class="dialog-header">
+        <div class="dialog-title">
+          <div class="copilot-orb">🤖</div>
+          <div>
+            <strong id="copilotTitle">AI Career Copilot</strong>
+            <small>Online and ready to help</small>
+          </div>
+        </div>
+
+        <button class="close-btn" id="closeCopilot" aria-label="Close copilot">
+          ×
+        </button>
+      </header>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message">
+          Hi Priya! I can help you plan your path toward becoming an AI Engineer.
+        </div>
+
+        <div class="message">
+          Try asking me about skills, courses, jobs, or interview preparation.
+        </div>
+      </div>
+
+      <form class="chat-form" id="chatForm">
+        <input
+          id="chatInput"
+          type="text"
+          placeholder="Ask about your career..."
+          autocomplete="off"
+        />
+        <button type="submit" aria-label="Send message">➤</button>
+      </form>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+To connect the backend later, replace the mock values inside `dashboardTemplate()` with API responses and keep the existing route names:
+
+```text
+#dashboard
+#career-twin
+#skills
+#jobs
+#learning
+#market
+#simulation
+#feedback
+#roadmap
+#settings
+```

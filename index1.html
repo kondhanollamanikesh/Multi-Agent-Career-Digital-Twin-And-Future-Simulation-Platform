@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Digital Twin</title>
+
+  <style>
+    :root {
+      --navy: #142848;
+      --navy-2: #1c3766;
+      --blue: #2777ed;
+      --blue-dark: #1e5fd0;
+      --blue-soft: #eaf3ff;
+      --page: #f5f8fd;
+      --card: #ffffff;
+      --text: #152d52;
+      --muted: #7183a0;
+      --border: #e4ebf5;
+      --green: #1bb88a;
+      --green-soft: #e4f8f2;
+      --purple: #9761ee;
+      --purple-soft: #f0e7ff;
+      --orange: #f2a43c;
+      --red: #ff6969;
+      --shadow: 0 8px 25px rgba(41, 83, 141, 0.06);
+      --radius: 13px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      background: var(--page);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 26px 16px 20px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 30% 0%, rgba(69, 123, 222, 0.22), transparent 30%),
+        linear-gradient(180deg, #142949 0%, #142746 65%, #10213e 100%);
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 0 7px 25px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      background: linear-gradient(145deg, #63b4ff, #3673db);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      font-size: 19px;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.1;
+      letter-spacing: -0.2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: #a8b9d7;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    .nav-item {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 0 10px;
+      border-radius: 8px;
+      color: #cad6eb;
+      font-size: 12px;
+      transition: 0.2s ease;
+    }
+
+    .nav-item:hover {
+      color: white;
+      background: rgba(75, 130, 226, 0.16);
+    }
+
+    .nav-item.active {
+      color: white;
+      background: linear-gradient(90deg, #2859a5, #24498d);
+      box-shadow: inset 0 0 0 1px rgba(139, 188, 255, 0.08);
+    }
+
+    .nav-icon {
+      width: 18px;
+      display: inline-grid;
+      place-items: center;
+      color: currentColor;
+      font-size: 17px;
+    }
+
+    .sidebar-footer-card {
+      margin-top: 145px;
+      padding: 18px;
+      border: 1px solid rgba(108, 165, 246, 0.28);
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(102, 174, 255, 0.22), transparent 32%),
+        linear-gradient(150deg, rgba(42, 88, 161, 0.9), rgba(28, 59, 108, 0.8));
+    }
+
+    .copilot-orb {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ffffff, #d6e6ff);
+      color: #2a74e9;
+      font-size: 23px;
+      box-shadow: 0 7px 15px rgba(0, 0, 0, 0.16);
+    }
+
+    .sidebar-footer-card h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .sidebar-footer-card p {
+      margin: 0 0 15px;
+      color: #c2d3ef;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .small-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      border-radius: 8px;
+      transition: 0.2s ease;
+    }
+
+    .primary-btn {
+      min-height: 36px;
+      padding: 0 16px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #2e86fa, #2369dc);
+      box-shadow: 0 6px 15px rgba(37, 113, 226, 0.22);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, #3a91ff, #1d60d2);
+    }
+
+    .secondary-btn {
+      min-height: 34px;
+      padding: 0 13px;
+      color: var(--blue);
+      border: 1px solid #73aaff;
+      background: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .secondary-btn:hover {
+      background: var(--blue-soft);
+    }
+
+    .small-btn {
+      min-height: 28px;
+      padding: 0 12px;
+      color: #ffffff;
+      background: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .small-btn:hover {
+      background: var(--blue-dark);
+    }
+
+    .workspace {
+      min-width: 0;
+    }
+
+    .topbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 26px 0 20px;
+      border-bottom: 1px solid #edf1f7;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      color: var(--text);
+      background: var(--blue-soft);
+      font-size: 18px;
+    }
+
+    .search-wrap {
+      width: min(510px, 48vw);
+      position: relative;
+    }
+
+    .search-wrap span {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      transform: translateY(-50%);
+      color: #6b86ae;
+      font-size: 17px;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      height: 37px;
+      padding: 0 16px 0 42px;
+      border: 0;
+      outline: 0;
+      border-radius: 22px;
+      color: var(--text);
+      background: #edf3fc;
+      font-size: 12px;
+    }
+
+    .search-wrap input::placeholder {
+      color: #879ab8;
+    }
+
+    .topbar-actions {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #476486;
+      background: transparent;
+      font-size: 18px;
+    }
+
+    .icon-btn:hover {
+      background: var(--blue-soft);
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 2px;
+      right: 1px;
+      width: 8px;
+      height: 8px;
+      border: 1px solid #ffffff;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .profile-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px;
+      color: var(--text);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #e7edf6;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ffe3d1, #c2dfff);
+      font-size: 21px;
+    }
+
+    .profile-menu {
+      position: absolute;
+      top: 46px;
+      right: 0;
+      width: 170px;
+      display: none;
+      padding: 7px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 12px 30px rgba(19, 53, 97, 0.13);
+      z-index: 30;
+    }
+
+    .profile-menu.open {
+      display: block;
+    }
+
+    .profile-menu a,
+    .profile-menu button {
+      width: 100%;
+      display: block;
+      padding: 9px 10px;
+      border-radius: 7px;
+      color: var(--text);
+      background: transparent;
+      text-align: left;
+      font-size: 11px;
+    }
+
+    .profile-menu a:hover,
+    .profile-menu button:hover {
+      background: var(--blue-soft);
+    }
+
+    .page {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    .hero-row {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 10px;
+    }
+
+    .greeting {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .sun {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #ffb431;
+      font-size: 31px;
+    }
+
+    .greeting h1 {
+      margin: 0;
+      color: #142949;
+      font-size: 20px;
+      letter-spacing: -0.4px;
+    }
+
+    .greeting p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .date {
+      color: #6e85aa;
+      font-size: 11px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+      margin-bottom: 14px;
+    }
+
+    .metric-card,
+    .panel {
+      border: 1px solid #e9eef6;
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .metric-card {
+      min-height: 137px;
+      padding: 14px;
+      display: flex;
+      gap: 13px;
+    }
+
+    .metric-icon {
+      width: 35px;
+      height: 35px;
+      flex: 0 0 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #287cf0;
+      background: #dcecff;
+      font-size: 19px;
+    }
+
+    .metric-card:nth-child(2) .metric-icon {
+      color: #16a67d;
+      background: #d6f6eb;
+    }
+
+    .metric-card:nth-child(3) .metric-icon {
+      color: #17a986;
+      background: #d9f7ed;
+    }
+
+    .metric-card:nth-child(4) .metric-icon {
+      color: #9560e7;
+      background: #efe1ff;
+    }
+
+    .metric-label {
+      color: #637796;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      margin-top: 8px;
+      color: #152d52;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .metric-subtitle {
+      margin-top: 7px;
+      color: #8999b3;
+      font-size: 10px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      margin-top: 10px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      color: #18a681;
+      background: var(--green-soft);
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .status-pill.blue {
+      color: #2380dc;
+      background: #def2fb;
+    }
+
+    .status-pill.purple {
+      color: #8552db;
+      background: var(--purple-soft);
+    }
+
+    .progress {
+      width: 100%;
+      height: 8px;
+      overflow: hidden;
+      margin-top: 9px;
+      border-radius: 20px;
+      background: #ebf0f8;
+    }
+
+    .progress span {
+      display: block;
+      width: 68%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #31c8a0, #16a981);
+    }
+
+    .metric-note {
+      margin-top: 8px;
+      color: #28a786;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 288px;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .left-column,
+    .right-column {
+      display: grid;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .panel {
+      padding: 14px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .panel-header h2,
+    .panel-header h3 {
+      margin: 0;
+      color: #183157;
+      font-size: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .panel-header p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--blue);
+      font-size: 9px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .text-link:hover {
+      color: var(--blue-dark);
+      text-decoration: underline;
+    }
+
+    .profile-panel {
+      min-height: 190px;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 15px;
+      align-items: center;
+    }
+
+    .profile-summary {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-height: 96px;
+      padding: 2px 13px 2px 3px;
+      border-right: 1px solid var(--border);
+    }
+
+    .large-avatar {
+      width: 76px;
+      height: 76px;
+      display: grid;
+      flex: 0 0 76px;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 38%, #ffd7ba 0 24%, transparent 25%),
+        radial-gradient(circle at 50% 43%, #273951 0 34%, transparent 35%),
+        linear-gradient(145deg, #c7e0ff, #7c73f6);
+      font-size: 36px;
+    }
+
+    .profile-summary h3 {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .profile-summary p {
+      margin: 6px 0 0;
+      color: #7588a8;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .profile-facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .fact-card {
+      min-height: 83px;
+      padding: 10px;
+      border: 1px solid #e6edf7;
+      border-radius: 9px;
+      background: #fbfdff;
+    }
+
+    .fact-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #637795;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .fact-title span:first-child {
+      color: var(--blue);
+      font-size: 14px;
+    }
+
+    .fact-value {
+      margin-top: 10px;
+      color: #183157;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .fact-note {
+      margin-top: 5px;
+      color: #8494ad;
+      font-size: 9px;
+      line-height: 1.3;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: 13px;
+    }
+
+    .gap-panel {
+      min-height: 260px;
+    }
+
+    .gap-content {
+      display: grid;
+      grid-template-columns: 135px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .donut {
+      width: 120px;
+      height: 120px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: conic-gradient(#22b98d 0deg 245deg, #e4f5f1 245deg 360deg);
+      position: relative;
+    }
+
+    .donut::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-center strong {
+      display: block;
+      color: #1a335a;
+      font-size: 22px;
+    }
+
+    .donut-center span {
+      color: #6d819e;
+      font-size: 9px;
+    }
+
+    .skill-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .skill-column {
+      padding-left: 14px;
+      border-left: 1px solid var(--border);
+    }
+
+    .skill-column h4 {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 10px;
+    }
+
+    .skill-column.missing h4 {
+      color: var(--red);
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skill-list li {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #5f7391;
+      font-size: 10px;
+    }
+
+    .check,
+    .missing-icon {
+      width: 13px;
+      height: 13px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .missing-icon {
+      background: var(--red);
+    }
+
+    .skill-column .text-link {
+      margin-top: 16px;
+    }
+
+    .jobs-panel {
+      min-height: 260px;
+    }
+
+    .job-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .job-card {
+      display: grid;
+      grid-template-columns: 31px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #e8eef7;
+      border-radius: 9px;
+      transition: 0.2s ease;
+    }
+
+    .job-card:hover {
+      border-color: #b7d4ff;
+      background: #fbfdff;
+      transform: translateY(-1px);
+    }
+
+    .company-logo {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #2776e5;
+      background: #edf4ff;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .job-card:nth-child(2) .company-logo {
+      color: #e4593d;
+      background: #fff0ec;
+    }
+
+    .job-card:nth-child(3) .company-logo {
+      color: #111f38;
+      background: #edf0f5;
+    }
+
+    .job-title {
+      color: #193259;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .job-company,
+    .job-location {
+      margin-top: 3px;
+      color: #8191a9;
+      font-size: 8px;
+    }
+
+    .job-location {
+      margin-top: 4px;
+    }
+
+    .job-meta {
+      display: grid;
+      justify-items: end;
+      gap: 9px;
+    }
+
+    .match {
+      padding: 4px 7px;
+      border-radius: 12px;
+      color: #159f7d;
+      background: var(--green-soft);
+      font-size: 8px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .salary {
+      color: #637794;
+      font-size: 8px;
+      white-space: nowrap;
+    }
+
+    .market-panel,
+    .simulation-panel {
+      min-height: 187px;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
+      gap: 13px;
+    }
+
+    .trend-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trend-card {
+      min-height: 108px;
+      display: grid;
+      justify-items: center;
+      padding: 9px 5px;
+      border: 1px solid #edf1f7;
+      border-radius: 9px;
+      text-align: center;
+    }
+
+    .trend-icon {
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #1fbf93;
+      background: #dbf7ee;
+      font-size: 14px;
+    }
+
+    .trend-card:nth-child(2) .trend-icon,
+    .trend-card:nth-child(4) .trend-icon {
+      color: #a064ee;
+      background: #f0e3ff;
+    }
+
+    .trend-card:nth-child(3) .trend-icon {
+      color: #3097e8;
+      background: #e1f3ff;
+    }
+
+    .trend-label {
+      margin-top: 8px;
+      color: #8594aa;
+      font-size: 8px;
+      line-height: 1.3;
+    }
+
+    .trend-value {
+      margin-top: 5px;
+      color: #294365;
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .trend-stat {
+      margin-top: 8px;
+      padding: 3px 7px;
+      border-radius: 12px;
+      color: #20a580;
+      background: #e4f8f0;
+      font-size: 8px;
+      font-weight: 800;
+    }
+
+    .simulation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8px;
+    }
+
+    .simulation-table th {
+      padding: 5px 4px;
+      color: #7890ae;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .simulation-table td {
+      padding: 7px 4px;
+      color: #526987;
+      border-bottom: 1px solid #f0f3f8;
+    }
+
+    .simulation-table td:not(:first-child) {
+      color: #254166;
+      font-weight: 700;
+    }
+
+    .copilot-panel {
+      padding: 14px;
+      border: 1px solid #e6d9ff;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(201, 174, 255, 0.25), transparent 35%),
+        linear-gradient(135deg, #f8f4ff, #efe8ff);
+    }
+
+    .copilot-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .copilot-header .copilot-orb {
+      width: 34px;
+      height: 34px;
+      flex-basis: 34px;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .copilot-panel h3 {
+      margin: 2px 0 6px;
+      font-size: 13px;
+    }
+
+    .copilot-panel p {
+      margin: 0;
+      color: #7686a3;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .question-box {
+      display: grid;
+      grid-template-columns: 1fr 35px;
+      gap: 8px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 11px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #687c9b;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .send-circle {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: linear-gradient(135deg, #3289fb, #1c67de);
+      font-size: 18px;
+    }
+
+    .roadmap-panel {
+      min-height: 332px;
+    }
+
+    .roadmap-list {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      margin: 19px 0 0;
+      padding: 0 0 0 36px;
+      list-style: none;
+    }
+
+    .roadmap-list::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      bottom: 8px;
+      left: 13px;
+      width: 2px;
+      background: #d7e4f8;
+    }
+
+    .roadmap-item {
+      position: relative;
+      min-height: 39px;
+    }
+
+    .roadmap-icon {
+      position: absolute;
+      top: -2px;
+      left: -36px;
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      border: 3px solid white;
+      border-radius: 50%;
+      color: white;
+      background: #52cfa9;
+      box-shadow: 0 2px 5px rgba(31, 93, 165, 0.14);
+      font-size: 11px;
+    }
+
+    .roadmap-item:nth-child(2) .roadmap-icon {
+      background: #438ff3;
+    }
+
+    .roadmap-item:nth-child(3) .roadmap-icon {
+      background: #f3a94b;
+    }
+
+    .roadmap-item:nth-child(4) .roadmap-icon {
+      background: #8f62dc;
+    }
+
+    .roadmap-item:nth-child(5) .roadmap-icon {
+      background: #2781df;
+    }
+
+    .roadmap-item h4 {
+      margin: 0;
+      color: #294465;
+      font-size: 10px;
+    }
+
+    .roadmap-item p {
+      margin: 4px 0 0;
+      color: #8695aa;
+      font-size: 9px;
+    }
+
+    .roadmap-status {
+      position: absolute;
+      top: 3px;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #c8d6e9;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .roadmap-status.done {
+      border-color: #29b891;
+      color: white;
+      background: #29b891;
+      font-size: 7px;
+      text-align: center;
+      line-height: 8px;
+    }
+
+    .journey-card {
+      min-height: 160px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(135deg, #edf7ff, #f5fbff);
+    }
+
+    .journey-card h3 {
+      max-width: 180px;
+      margin: 0 0 9px 75px;
+      color: #2b4c76;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .journey-card p {
+      max-width: 170px;
+      margin: 0 0 14px 75px;
+      color: #7185a2;
+      font-size: 9px;
+      line-height: 1.45;
+    }
+
+    .mountain {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 95px;
+      height: 105px;
+      overflow: hidden;
+      color: #64a7ed;
+      font-size: 70px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .mountain::after {
+      content: "▲";
+      position: absolute;
+      bottom: -25px;
+      left: 19px;
+      color: #bddcff;
+      font-size: 96px;
+    }
+
+    .journey-card .primary-btn {
+      margin-left: 75px;
+    }
+
+    .route-page {
+      min-height: calc(100vh - 102px);
+      display: grid;
+      align-content: start;
+      gap: 15px;
+    }
+
+    .route-hero {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 90% 0%, rgba(73, 141, 247, 0.16), transparent 32%),
+        white;
+      box-shadow: var(--shadow);
+    }
+
+    .route-hero .eyebrow {
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .route-hero h1 {
+      margin: 9px 0 8px;
+      color: var(--text);
+      font-size: 26px;
+    }
+
+    .route-hero p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .placeholder-card {
+      min-height: 145px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .placeholder-card .placeholder-icon {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 18px;
+    }
+
+    .placeholder-card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+    }
+
+    .placeholder-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 24px;
+      background: rgba(13, 29, 55, 0.2);
+      z-index: 50;
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .copilot-dialog {
+      width: min(390px, 100%);
+      max-height: min(650px, calc(100vh - 48px));
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      border: 1px solid #dacaff;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 18px 50px rgba(22, 55, 99, 0.22);
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 17px;
+      color: white;
+      background: linear-gradient(135deg, #2d7cf1, #5d55d7);
+    }
+
+    .dialog-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .dialog-title .copilot-orb {
+      width: 31px;
+      height: 31px;
+      flex-basis: 31px;
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .dialog-title strong {
+      font-size: 13px;
+    }
+
+    .dialog-title small {
+      display: block;
+      margin-top: 2px;
+      color: #d7e6ff;
+      font-size: 9px;
+    }
+
+    .close-btn {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      color: white;
+      background: rgba(255,255,255,0.14);
+      font-size: 17px;
+    }
+
+    .chat-messages {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      overflow-y: auto;
+      padding: 15px;
+      background: #f8faff;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 9px 11px;
+      border-radius: 10px;
+      color: #526987;
+      background: white;
+      font-size: 11px;
+      line-height: 1.45;
+      box-shadow: 0 2px 7px rgba(53, 93, 145, 0.06);
+    }
+
+    .message.user {
+      justify-self: end;
+      color: white;
+      background: var(--blue);
+    }
+
+    .chat-form {
+      display: flex;
+      gap: 7px;
+      padding: 11px;
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+
+    .chat-form input {
+      min-width: 0;
+      flex: 1;
+      height: 35px;
+      padding: 0 11px;
+      border: 1px solid var(--border);
+      outline: 0;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 10px;
+    }
+
+    .chat-form button {
+      width: 36px;
+      border-radius: 8px;
+      color: white;
+      background: var(--blue);
+      font-size: 17px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      display: none;
+      max-width: 280px;
+      padding: 12px 15px;
+      border: 1px solid #d7e7fb;
+      border-radius: 9px;
+      color: #355576;
+      background: white;
+      box-shadow: 0 12px 30px rgba(22, 60, 109, 0.15);
+      font-size: 11px;
+      z-index: 70;
+    }
+
+    .toast.show {
+      display: block;
+      animation: toast-in 0.22s ease;
+    }
+
+    @keyframes toast-in {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mobile-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 1180px) {
+      .content-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .right-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .journey-card {
+        min-height: 180px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .app {
+        display: block;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -270px;
+        width: 250px;
+        transition: left 0.25s ease;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .sidebar-footer-card {
+        margin-top: 55px;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        display: none;
+        background: rgba(10, 25, 49, 0.36);
+        z-index: 15;
+      }
+
+      .mobile-backdrop.open {
+        display: block;
+      }
+
+      .topbar {
+        padding: 0 15px;
+      }
+
+      .search-wrap {
+        width: min(510px, 60vw);
+      }
+
+      .profile-trigger span {
+        display: none;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .profile-content {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-summary {
+        padding-bottom: 14px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        gap: 8px;
+      }
+
+      .search-wrap {
+        width: auto;
+        flex: 1;
+      }
+
+      .topbar-actions {
+        gap: 4px;
+      }
+
+      .date {
+        display: none;
+      }
+
+      .hero-row {
+        align-items: flex-start;
+      }
+
+      .greeting h1 {
+        font-size: 17px;
+      }
+
+      .metrics,
+      .two-column,
+      .bottom-grid,
+      .right-column,
+      .route-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gap-content {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-columns {
+        gap: 8px;
+      }
+
+      .trend-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .panel {
+        padding: 12px;
+      }
+
+      .page {
+        padding: 11px;
+      }
+
+      .overlay {
+        padding: 12px;
+      }
+
+      .copilot-dialog {
+        max-height: calc(100vh - 24px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">🤖</div>
+        <div>
+          <div class="brand-title">Career Digital Twin</div>
+          <div class="brand-subtitle">Your Future. Powered by AI.</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a class="nav-item" data-route="dashboard" href="#dashboard">
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="nav-item" data-route="career-twin" href="#career-twin">
+          <span class="nav-icon">♙</span>
+          <span>My Career Twin</span>
+        </a>
+
+        <a class="nav-item" data-route="skills" href="#skills">
+          <span class="nav-icon">◎</span>
+          <span>Skill Gap Analysis</span>
+        </a>
+
+        <a class="nav-item" data-route="jobs" href="#jobs">
+          <span class="nav-icon">▣</span>
+          <span>Job Opportunities</span>
+        </a>
+
+        <a class="nav-item" data-route="learning" href="#learning">
+          <span class="nav-icon">▤</span>
+          <span>Learning &amp; Courses</span>
+        </a>
+
+        <a class="nav-item" data-route="market" href="#market">
+          <span class="nav-icon">⌁</span>
+          <span>Market Intelligence</span>
+        </a>
+
+        <a class="nav-item" data-route="simulation" href="#simulation">
+          <span class="nav-icon">◷</span>
+          <span>Future Simulation</span>
+        </a>
+
+        <a class="nav-item" data-route="feedback" href="#feedback">
+          <span class="nav-icon">♧</span>
+          <span>Recruiter Feedback</span>
+        </a>
+
+        <a class="nav-item" data-route="roadmap" href="#roadmap">
+          <span class="nav-icon">▱</span>
+          <span>Career Roadmap</span>
+        </a>
+
+        <a class="nav-item" data-route="settings" href="#settings">
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer-card">
+        <div class="copilot-orb">🤖</div>
+        <h3>Ask Career Copilot</h3>
+        <p>
+          Get personalized advice, answer your questions, and plan your next step.
+        </p>
+        <button class="primary-btn" data-action="open-copilot">
+          Chat Now <span>→</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+          ☰
+        </button>
+
+        <form class="search-wrap" id="searchForm">
+          <span>⌕</span>
+          <input
+            id="globalSearch"
+            type="search"
+            placeholder="Search jobs, skills, courses, or ask a question..."
+            autocomplete="off"
+          />
+        </form>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="notificationBtn" aria-label="Notifications">
+            ♧
+            <span class="notification-dot"></span>
+          </button>
+
+          <button class="profile-trigger" id="profileTrigger">
+            <span class="avatar">👩🏻</span>
+            <span>Priya Sharma</span>
+            <span>⌄</span>
+          </button>
+
+          <div class="profile-menu" id="profileMenu">
+            <a href="#career-twin">View profile</a>
+            <a href="#settings">Account settings</a>
+            <button data-action="show-toast">Sign out</button>
+          </div>
+        </div>
+      </header>
+
+      <div id="page"></div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="overlay" id="copilotOverlay">
+    <section class="copilot-dialog" role="dialog" aria-modal="true" aria-labelledby="copilotTitle">
+      <header class="dialog-header">
+        <div class="dialog-title">
+          <div class="copilot-orb">🤖</div>
+          <div>
+            <strong id="copilotTitle">AI Career Copilot</strong>
+            <small>Online and ready to help</small>
+          </div>
+        </div>
+
+        <button class="close-btn" id="closeCopilot" aria-label="Close copilot">
+          ×
+        </button>
+      </header>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message">
+          Hi Priya! I can help you plan your path toward becoming an AI Engineer.
+        </div>
+
+        <div class="message">
+          Try asking me about skills, courses, jobs, or interview preparation.
+        </div>
+      </div>
+
+      <form class="chat-form" id="chatForm">
+        <input
+          id="chatInput"
+          type="text"
+          placeholder="Ask about your career..."
+          autocomplete="off"
+        />
+        <button type="submit" aria-label="Send message">➤</button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const routes = {
+      dashboard: {
+        title: "Dashboard",
+        eyebrow: "Overview",
+        description: "Your personalized career intelligence dashboard."
+      },
+      "career-twin": {
+        title: "My Career Twin",
+        eyebrow: "Your profile",
+        description: "Manage your skills, goals, preferences, and professional profile."
+      },
+      skills: {
+        title: "Skill Gap Analysis",
+        eyebrow: "Skill development",
+        description: "Understand the skills you already have and the skills needed for your target role."
+      },
+      jobs: {
+        title: "Job Opportunities",
+        eyebrow: "Your next opportunity",
+        description: "Explore recommended roles based on your profile, goals, and current market demand."
+      },
+      learning: {
+        title: "Learning & Courses",
+        eyebrow: "Learning center",
+        description: "Build your next set of skills through guided learning paths and courses."
+      },
+      market: {
+        title: "Market Intelligence",
+        eyebrow: "Market trends",
+        description: "Track growing skills, hiring demand, compensation, and technology trends."
+      },
+      simulation: {
+        title: "Future Simulation",
+        eyebrow: "Career planning",
+        description: "See how different skill and career decisions can affect your future readiness."
+      },
+      feedback: {
+        title: "Recruiter Feedback",
+        eyebrow: "External perspective",
+        description: "Review recruiter comments and discover ways to strengthen your profile."
+      },
+      roadmap: {
+        title: "Career Roadmap",
+        eyebrow: "Your path",
+        description: "Follow a personalized sequence of milestones toward your target career."
+      },
+      settings: {
+        title: "Settings",
+        eyebrow: "Preferences",
+        description: "Manage your account, notifications, privacy, and dashboard preferences."
+      }
+    };
+
+    const page = document.getElementById("page");
+    const sidebar = document.getElementById("sidebar");
+    const mobileBackdrop = document.getElementById("mobileBackdrop");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const toast = document.getElementById("toast");
+    const profileTrigger = document.getElementById("profileTrigger");
+    const profileMenu = document.getElementById("profileMenu");
+    const copilotOverlay = document.getElementById("copilotOverlay");
+    const closeCopilot = document.getElementById("closeCopilot");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+
+    let toastTimer;
+
+    function currentRoute() {
+      const hash = window.location.hash.replace("#", "");
+      return hash.split("?")[0] || "dashboard";
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2800);
+    }
+
+    function closeMobileSidebar() {
+      sidebar.classList.remove("open");
+      mobileBackdrop.classList.remove("open");
+    }
+
+    function openCopilot() {
+      copilotOverlay.classList.add("open");
+      setTimeout(() => chatInput.focus(), 100);
+    }
+
+    function closeCopilotDialog() {
+      copilotOverlay.classList.remove("open");
+    }
+
+    function dashboardTemplate() {
+      return `
+        <div class="page">
+          <section class="hero-row">
+            <div class="greeting">
+              <div class="sun">☀</div>
+              <div>
+                <h1>Good Morning, Priya!</h1>
+                <p>Here's your personalized career intelligence dashboard.</p>
+              </div>
+            </div>
+            <div class="date">Today, 9 Sep 2026</div>
+          </section>
+
+          <section class="metrics">
+            <article class="metric-card">
+              <div class="metric-icon">♙</div>
+              <div>
+                <div class="metric-label">Current Role</div>
+                <div class="metric-value">B.Tech Computer Science</div>
+                <div class="metric-subtitle">Final Year Student</div>
+                <span class="status-pill blue">In Progress</span>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-icon">◎</div>
+              <div>
+                <div class="metric-label">Career Goal</div>
+                <div class="metric-value">AI Engineer</div>
+                <div class="metric-subtitle">Target Timeline: 2 Years</div>
+                <span class="status-pill">On Track</span>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-icon">↗</div>
+              <div>
+                <div class="metric-label">Overall Readiness</div>
+                <div class="metric-value">68%</div>
+                <div class="progress"><span></span></div>
+                <div class="metric-note">+12% since last month</div>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-icon">☆</div>
+              <div>
+                <div class="metric-label">Top Recommended Skill</div>
+                <div class="metric-value">AWS</div>
+                <div class="metric-subtitle">High Demand&nbsp; • &nbsp;92% growth</div>
+                <span class="status-pill purple">Trending</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="content-grid">
+            <div class="left-column">
+              <section class="panel profile-panel">
+                <div class="panel-header">
+                  <div>
+                    <h2>Your Career Digital Twin</h2>
+                    <p>A dynamic profile of your skills, goals, experience and aspirations.</p>
+                  </div>
+                  <a class="secondary-btn" href="#career-twin">View Full Profile&nbsp; →</a>
+                </div>
+
+                <div class="profile-content">
+                  <div class="profile-summary">
+                    <div class="large-avatar">👩🏻</div>
+                    <div>
+                      <h3>Priya Sharma</h3>
+                      <p>B.Tech Computer Science</p>
+                      <p>Final Year Student</p>
+                    </div>
+                  </div>
+
+                  <div class="profile-facts">
+                    <div class="fact-card">
+                      <div class="fact-title"><span>♧</span> Current Skills</div>
+                      <div class="fact-value">12</div>
+                      <div class="fact-note">e.g. Python, Java, SQL...</div>
+                    </div>
+
+                    <div class="fact-card">
+                      <div class="fact-title"><span>◎</span> Goal</div>
+                      <div class="fact-value">AI Engineer</div>
+                      <div class="fact-note">in 2 years</div>
+                    </div>
+
+                    <div class="fact-card">
+                      <div class="fact-title"><span>⌖</span> Location Preference</div>
+                      <div class="fact-value">Remote / Bangalore</div>
+                    </div>
+
+                    <div class="fact-card">
+                      <div class="fact-title"><span>▣</span> Preferred Work Type</div>
+                      <div class="fact-value">Full-time</div>
+                      <div class="fact-note">(Remote preferred)</div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="two-column">
+                <section class="panel gap-panel">
+                  <div class="panel-header">
+                    <div>
+                      <h2>Skill Gap Analysis</h2>
+                      <p>Here are the skills you need to build for your target role: AI Engineer.</p>
+                    </div>
+                    <a class="small-btn" href="#learning">View Learning Path&nbsp; →</a>
+                  </div>
+
+                  <div class="gap-content">
+                    <div class="donut">
+                      <div class="donut-center">
+                        <strong>68%</strong>
+                        <span>Match Score</span>
+                      </div>
+                    </div>
+
+                    <div class="skill-columns">
+                      <div class="skill-column">
+                        <h4>Your Skills</h4>
+                        <ul class="skill-list">
+                          <li><span class="check">✓</span> Python</li>
+                          <li><span class="check">✓</span> Machine Learning</li>
+                          <li><span class="check">✓</span> SQL</li>
+                          <li><span class="check">✓</span> Java</li>
+                        </ul>
+                        <a class="text-link" href="#skills">View All&nbsp; →</a>
+                      </div>
+
+                      <div class="skill-column missing">
+                        <h4>Missing Skills</h4>
+                        <ul class="skill-list">
+                          <li><span class="missing-icon">!</span> AWS</li>
+                          <li><span class="missing-icon">!</span> Docker</li>
+                          <li><span class="missing-icon">!</span> Kubernetes</li>
+                          <li><span class="missing-icon">!</span> MLOps</li>
+                        </ul>
+                        <a class="text-link" href="#skills">View All&nbsp; →</a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="panel jobs-panel">
+                  <div class="panel-header">
+                    <div>
+                      <h2>Recommended Jobs</h2>
+                      <p>Based on your profile and market trends</p>
+                    </div>
+                    <a class="text-link" href="#jobs">View All Jobs&nbsp; →</a>
+                  </div>
+
+                  <div class="job-list" id="dashboardJobs">
+                    <article class="job-card" data-search="ai engineer google bangalore remote">
+                      <div class="company-logo">G</div>
+                      <div>
+                        <div class="job-title">AI Engineer</div>
+                        <div class="job-company">Google</div>
+                        <div class="job-location">Bangalore / Remote</div>
+                      </div>
+                      <div class="job-meta">
+                        <span class="match">92% match</span>
+                        <span class="salary">₹12 – 18 LPA&nbsp; ›</span>
+                      </div>
+                    </article>
+
+                    <article class="job-card" data-search="machine learning engineer microsoft bangalore remote">
+                      <div class="company-logo">▦</div>
+                      <div>
+                        <div class="job-title">Machine Learning Engineer</div>
+                        <div class="job-company">Microsoft</div>
+                        <div class="job-location">Bangalore / Remote</div>
+                      </div>
+                      <div class="job-meta">
+                        <span class="match">88% match</span>
+                        <span class="salary">₹10 – 16 LPA&nbsp; ›</span>
+                      </div>
+                    </article>
+
+                    <article class="job-card" data-search="data scientist amazon bangalore remote">
+                      <div class="company-logo">a</div>
+                      <div>
+                        <div class="job-title">Data Scientist</div>
+                        <div class="job-company">Amazon</div>
+                        <div class="job-location">Bangalore / Remote</div>
+                      </div>
+                      <div class="job-meta">
+                        <span class="match">82% match</span>
+                        <span class="salary">₹9 – 14 LPA&nbsp; ›</span>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+              </div>
+
+              <div class="bottom-grid">
+                <section class="panel market-panel">
+                  <div class="panel-header">
+                    <div>
+                      <h2>Market Intelligence</h2>
+                      <p>Latest trends in the job market</p>
+                    </div>
+                    <a class="text-link" href="#market">View More&nbsp; →</a>
+                  </div>
+
+                  <div class="trend-grid">
+                    <div class="trend-card">
+                      <div class="trend-icon">◎</div>
+                      <div class="trend-label">Top Growing Skill</div>
+                      <div class="trend-value">Generative AI</div>
+                      <div class="trend-stat">+78%</div>
+                    </div>
+
+                    <div class="trend-card">
+                      <div class="trend-icon">♙</div>
+                      <div class="trend-label">Highest Paying Role</div>
+                      <div class="trend-value">AI Engineer</div>
+                      <div class="trend-stat">₹18 LPA</div>
+                    </div>
+
+                    <div class="trend-card">
+                      <div class="trend-icon">▣</div>
+                      <div class="trend-label">In-Demand Domain</div>
+                      <div class="trend-value">Cloud Computing</div>
+                      <div class="trend-stat">+62%</div>
+                    </div>
+
+                    <div class="trend-card">
+                      <div class="trend-icon">✦</div>
+                      <div class="trend-label">Trending Technology</div>
+                      <div class="trend-value">RAG</div>
+                      <div class="trend-stat">+55%</div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="panel simulation-panel">
+                  <div class="panel-header">
+                    <div>
+                      <h2>Future Career Simulation</h2>
+                      <p>See how different choices can impact your career.</p>
+                    </div>
+                    <button class="small-btn" data-action="run-simulation">
+                      Run Simulation&nbsp; →
+                    </button>
+                  </div>
+
+                  <table class="simulation-table">
+                    <thead>
+                      <tr>
+                        <th>Scenario</th>
+                        <th>Skills Added</th>
+                        <th>Job Readiness</th>
+                        <th>Estimated Salary</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Current</td>
+                        <td>–</td>
+                        <td>68%</td>
+                        <td>₹8 LPA</td>
+                      </tr>
+                      <tr>
+                        <td>+ AWS</td>
+                        <td>AWS</td>
+                        <td>80%</td>
+                        <td>₹12 LPA</td>
+                      </tr>
+                      <tr>
+                        <td>+ AWS + Docker</td>
+                        <td>AWS, Docker</td>
+                        <td>88%</td>
+                        <td>₹15 LPA</td>
+                      </tr>
+                      <tr>
+                        <td>+ AWS + Docker + MLOps</td>
+                        <td>AWS, Docker, MLOps</td>
+                        <td>94%</td>
+                        <td>₹18 LPA</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+            </div>
+
+            <aside class="right-column">
+              <section class="copilot-panel">
+                <div class="copilot-header">
+                  <div class="copilot-orb">🤖</div>
+                  <div>
+                    <h3>AI Career Copilot</h3>
+                    <p>Get instant guidance, ask questions, or explore your career options.</p>
+                  </div>
+                </div>
+
+                <button class="question-box" data-action="open-copilot">
+                  <span>What skills should I learn to become an AI Engineer?</span>
+                  <span class="send-circle">➤</span>
+                </button>
+              </section>
+
+              <section class="panel roadmap-panel">
+                <div class="panel-header">
+                  <div>
+                    <h2>Career Roadmap</h2>
+                    <p>Based on your goal: AI Engineer</p>
+                  </div>
+                </div>
+
+                <ol class="roadmap-list">
+                  <li class="roadmap-item">
+                    <span class="roadmap-icon">▣</span>
+                    <h4>1. Strengthen Core Skills</h4>
+                    <p>Python, Data Structures</p>
+                    <span class="roadmap-status done">✓</span>
+                  </li>
+
+                  <li class="roadmap-item">
+                    <span class="roadmap-icon">▤</span>
+                    <h4>2. Learn Cloud &amp; DevOps</h4>
+                    <p>AWS, Docker, Kubernetes</p>
+                    <span class="roadmap-status"></span>
+                  </li>
+
+                  <li class="roadmap-item">
+                    <span class="roadmap-icon">▦</span>
+                    <h4>3. Build Projects</h4>
+                    <p>Real-world AI/ML projects</p>
+                    <span class="roadmap-status"></span>
+                  </li>
+
+                  <li class="roadmap-item">
+                    <span class="roadmap-icon">▣</span>
+                    <h4>4. Apply for Internships</h4>
+                    <p>Gain industry experience</p>
+                    <span class="roadmap-status"></span>
+                  </li>
+
+                  <li class="roadmap-item">
+                    <span class="roadmap-icon">♙</span>
+                    <h4>5. Target AI Engineer Role</h4>
+                    <p>In 2 years</p>
+                    <span class="roadmap-status"></span>
+                  </li>
+                </ol>
+
+                <a class="text-link" href="#roadmap">View Detailed Roadmap&nbsp; →</a>
+              </section>
+
+              <section class="panel journey-card">
+                <div class="mountain">▲</div>
+                <h3>Your career is a journey, not a destination.</h3>
+                <p>
+                  With the right skills, guidance and opportunities, you can achieve your dream.
+                </p>
+                <a class="primary-btn" href="#roadmap">Explore More&nbsp; →</a>
+              </section>
+            </aside>
+          </section>
+        </div>
+      `;
+    }
+
+    function placeholderTemplate(routeName) {
+      const route = routes[routeName] || routes.dashboard;
+
+      const cards = {
+        "career-twin": [
+          ["♙", "Personal profile", "Update your education, experience, location, work preferences, and career goals."],
+          ["◎", "Skills profile", "Your existing and target skills will appear here once connected to your backend."],
+          ["✦", "Career preferences", "Set preferred roles, industries, locations, salary expectations, and work style."]
+        ],
+        skills: [
+          ["✓", "Current strengths", "Python, machine learning, SQL, and Java are currently contributing to your readiness score."],
+          ["!", "Priority gaps", "AWS, Docker, Kubernetes, and MLOps are the highest priority skills for your target role."],
+          ["▤", "Recommended learning", "Courses and projects can be connected here when your learning backend is ready."]
+        ],
+        jobs: [
+          ["▣", "Recommended roles", "AI Engineer, Machine Learning Engineer, and Data Scientist roles match your current profile."],
+          ["⌖", "Location filters", "Bangalore and remote opportunities are currently selected as your preferred locations."],
+          ["↗", "Saved opportunities", "Saved jobs, applications, interview stages, and recruiter responses can be added here."]
+        ],
+        learning: [
+          ["▤", "Learning paths", "Create guided paths for AWS, Docker, Kubernetes, MLOps, and advanced machine learning."],
+          ["◷", "Progress tracking", "Course completion, project submissions, and assessment results can be tracked here."],
+          ["✦", "Personalized courses", "Backend recommendations can populate this area based on your skill gaps."]
+        ],
+        market: [
+          ["↗", "Growing skills", "Generative AI, cloud computing, RAG, and MLOps are highlighted as high-demand areas."],
+          ["₹", "Salary intelligence", "Compensation ranges can later be loaded from your market data service."],
+          ["◎", "Role demand", "Compare job volume and growth for different career paths."]
+        ],
+        simulation: [
+          ["◷", "Scenario builder", "Add skills and experiences to see how they may change your career readiness."],
+          ["↗", "Readiness forecast", "Future backend calculations can replace the current dashboard mock values."],
+          ["₹", "Salary estimate", "Connect salary data later to generate location and role-specific estimates."]
+        ],
+        feedback: [
+          ["♧", "Recruiter feedback", "Recruiter comments, profile reviews, and interview notes can appear here."],
+          ["✓", "Positive signals", "Track strengths repeatedly identified by recruiters and hiring teams."],
+          ["!", "Improvement areas", "Turn feedback into measurable actions for your roadmap."]
+        ],
+        roadmap: [
+          ["1", "Strengthen core skills", "Continue improving Python, data structures, machine learning, and problem solving."],
+          ["2", "Learn cloud and DevOps", "Build practical AWS, Docker, Kubernetes, and MLOps experience."],
+          ["3", "Build and apply", "Create portfolio projects, apply for internships, and target AI Engineer roles."]
+        ],
+        settings: [
+          ["⚙", "Account settings", "Manage your personal account details and profile information."],
+          ["♧", "Notifications", "Choose which career alerts, job updates, and learning reminders you receive."],
+          ["⌖", "Privacy", "Control how your career data is stored and used."]
+        ]
+      };
+
+      const selectedCards = cards[routeName] || cards["career-twin"];
+
+      return `
+        <div class="page route-page">
+          <section class="route-hero">
+            <div class="eyebrow">${route.eyebrow}</div>
+            <h1>${route.title}</h1>
+            <p>${route.description}</p>
+          </section>
+
+          <section class="route-grid">
+            ${selectedCards.map(card => `
+              <article class="placeholder-card">
+                <div class="placeholder-icon">${card[0]}</div>
+                <h3>${card[1]}</h3>
+                <p>${card[2]}</p>
+              </article>
+            `).join("")}
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Backend-ready workspace</h2>
+                <p>This page is currently using frontend placeholder data.</p>
+              </div>
+              <button class="secondary-btn" data-action="show-toast">
+                Connect data later&nbsp; →
+              </button>
+            </div>
+
+            <div style="
+              min-height: 160px;
+              display: grid;
+              place-items: center;
+              border: 1px dashed #bfd2eb;
+              border-radius: 10px;
+              color: #8395b0;
+              background: #fbfdff;
+              font-size: 12px;
+              text-align: center;
+              padding: 20px;
+            ">
+              Additional ${route.title.toLowerCase()} elements can be added here.
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderRoute() {
+      const routeName = currentRoute();
+
+      document.querySelectorAll(".nav-item").forEach(item => {
+        item.classList.toggle("active", item.dataset.route === routeName);
+      });
+
+      page.innerHTML = routeName === "dashboard"
+        ? dashboardTemplate()
+        : placeholderTemplate(routeName);
+
+      closeMobileSidebar();
+
+      if (routeName !== "dashboard") {
+        document.title = `${routes[routeName]?.title || "Career Digital Twin"} | Career Digital Twin`;
+      } else {
+        document.title = "Career Digital Twin";
+      }
+
+      bindDynamicActions();
+    }
+
+    function bindDynamicActions() {
+      document.querySelectorAll("[data-action]").forEach(element => {
+        element.addEventListener("click", () => {
+          const action = element.dataset.action;
+
+          if (action === "open-copilot") {
+            openCopilot();
+          }
+
+          if (action === "run-simulation") {
+            window.location.hash = "simulation";
+            showToast("Simulation workspace opened.");
+          }
+
+          if (action === "show-toast") {
+            showToast("This action is ready to connect to your backend.");
+          }
+        });
+      });
+
+      document.querySelectorAll(".job-card").forEach(card => {
+        card.addEventListener("click", () => {
+          showToast("Job details are ready to connect to your job API.");
+        });
+      });
+    }
+
+    mobileMenuBtn.addEventListener("click", () => {
+      sidebar.classList.add("open");
+      mobileBackdrop.classList.add("open");
+    });
+
+    mobileBackdrop.addEventListener("click", closeMobileSidebar);
+
+    profileTrigger.addEventListener("click", event => {
+      event.stopPropagation();
+      profileMenu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", event => {
+      if (!profileMenu.contains(event.target) && event.target !== profileTrigger) {
+        profileMenu.classList.remove("open");
+      }
+    });
+
+    document.getElementById("notificationBtn").addEventListener("click", () => {
+      showToast("You have 3 new career updates.");
+    });
+
+    document.getElementById("searchForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const value = document.getElementById("globalSearch").value.trim();
+
+      if (!value) {
+        showToast("Type a job, skill, course, or question to search.");
+        return;
+      }
+
+      window.location.hash = `jobs?q=${encodeURIComponent(value)}`;
+      showToast(`Searching for "${value}"`);
+    });
+
+    document.getElementById("globalSearch").addEventListener("input", event => {
+      const query = event.target.value.toLowerCase().trim();
+      const jobs = document.querySelectorAll("#dashboardJobs .job-card");
+
+      jobs.forEach(job => {
+        job.style.display = !query || job.dataset.search.includes(query)
+          ? "grid"
+          : "none";
+      });
+    });
+
+    closeCopilot.addEventListener("click", closeCopilotDialog);
+
+    copilotOverlay.addEventListener("click", event => {
+      if (event.target === copilotOverlay) {
+        closeCopilotDialog();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeCopilotDialog();
+        closeMobileSidebar();
+        profileMenu.classList.remove("open");
+      }
+    });
+
+    chatForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const value = chatInput.value.trim();
+
+      if (!value) {
+        return;
+      }
+
+      const userMessage = document.createElement("div");
+      userMessage.className = "message user";
+      userMessage.textContent = value;
+      chatMessages.appendChild(userMessage);
+
+      chatInput.value = "";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      setTimeout(() => {
+        const assistantMessage = document.createElement("div");
+        assistantMessage.className = "message";
+        assistantMessage.textContent =
+          "Based on your current profile, AWS, Docker, Kubernetes, and MLOps would be strong next steps toward your AI Engineer goal.";
+        chatMessages.appendChild(assistantMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 550);
+    });
+
+    window.addEventListener("hashchange", renderRoute);
+
+    renderRoute();
+  </script>
+</body>
+</html>
+```
+
+To connect the backend later, replace the mock values inside `dashboardTemplate()` with API responses and keep the existing route names:
+
+```text
+#dashboard
+#career-twin
+#skills
+#jobs
+#learning
+#market
+#simulation
+#feedback
+#roadmap
+#settings
+```
+

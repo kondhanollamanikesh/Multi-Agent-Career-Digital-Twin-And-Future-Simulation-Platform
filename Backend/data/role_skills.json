@@ -1,0 +1,335 @@
+{
+    "AI Engineer": {
+        "role": "AI Engineer",
+        "experience_level": "Entry Level",
+        "category": null,
+        "industry": "Artificial Intelligence",
+        "required_skills": [
+            "Proficiency in Python (data structures, OOP, scripting)",
+            "Foundations of machine learning: supervised/unsupervised learning, evaluation metrics",
+            "Basic linear algebra, probability, and statistics",
+            "Experience with data manipulation libraries (pandas, NumPy)",
+            "Familiarity with ML libraries (scikit-learn, TensorFlow or PyTorch)",
+            "Version control with Git",
+            "Ability to write clean, readable code and follow coding standards",
+            "Understanding of software development lifecycle and testing basics",
+            "Experience working in Linux/Unix command‑line environment",
+            "Basic SQL for data querying",
+            "Communication and teamwork skills (Agile/Scrum familiarity)"
+        ],
+        "preferred_skills": [
+            "Hands‑on projects or coursework using deep learning (CNNs, RNNs, Transformers)",
+            "Experience with NLP or computer vision libraries (spaCy, Hugging Face, OpenCV)",
+            "Knowledge of feature engineering and data preprocessing pipelines",
+            "Familiarity with MLOps concepts: model tracking, experiment management (MLflow, Weights & Biases)",
+            "Basic containerization (Docker) and orchestration (Kubernetes)",
+            "Experience with cloud AI services (AWS SageMaker, GCP AI Platform, Azure Machine Learning)",
+            "Proficiency in building and consuming RESTful APIs",
+            "Understanding of data engineering tools (Apache Spark, Airflow)",
+            "Knowledge of software testing frameworks (pytest, unittest)",
+            "Exposure to CI/CD pipelines (GitHub Actions, GitLab CI)"
+        ],
+        "tools": [
+            "Python (3.8+)",
+            "Jupyter Notebooks / JupyterLab",
+            "VS Code or PyCharm",
+            "Git (GitHub/GitLab/Bitbucket)",
+            "pandas, NumPy, SciPy",
+            "scikit-learn",
+            "TensorFlow 2.x or PyTorch",
+            "Matplotlib / Seaborn / Plotly",
+            "Docker",
+            "PostgreSQL / MySQL (basic querying)",
+            "Linux Bash"
+        ],
+        "cloud": [
+            "AWS (S3, EC2, SageMaker) – basic usage",
+            "Google Cloud Platform (Cloud Storage, AI Platform) – basic usage",
+            "Microsoft Azure (Blob Storage, Azure ML) – basic usage",
+            "Fundamental concepts of IaaS, PaaS, and serverless for ML workloads"
+        ],
+        "responsibilities": [
+            "Assist in designing, implementing, and testing machine learning models under guidance",
+            "Perform data cleaning, exploratory analysis, and feature engineering",
+            "Train, validate, and tune models using appropriate libraries and frameworks",
+            "Document experiments, results, and code in reproducible notebooks or scripts",
+            "Participate in code reviews and contribute to shared codebases",
+            "Help deploy models to staging/production environments via APIs or batch pipelines",
+            "Monitor model performance and assist with basic debugging",
+            "Collaborate with data scientists, software engineers, and product teams",
+            "Stay current with emerging ML techniques and share knowledge with the team"
+        ],
+        "sources": []
+    },
+    "Machine Learning Engineer": {
+        "core_skills": [
+            "Python",
+            "Statistics",
+            "Machine Learning",
+            "Deep Learning",
+            "SQL"
+        ],
+        "frameworks": [
+            "Scikit-learn",
+            "PyTorch",
+            "TensorFlow"
+        ],
+        "deployment": [
+            "Docker",
+            "CI/CD"
+        ],
+        "mlops": [
+            "MLOps",
+            "MLflow"
+        ],
+        "cloud": [
+            "AWS",
+            "Azure",
+            "Google Cloud"
+        ]
+    },
+    "Backend Engineer": {
+        "role": "Backend Engineer",
+        "experience_level": "No Experience",
+        "category": null,
+        "industry": "AI",
+        "required_skills": [
+            "Proficiency in at least one backend programming language (e.g., Python, Java, Go, or Node.js)",
+            "Solid understanding of data structures, algorithms, and object‑oriented design",
+            "Experience building RESTful APIs and handling JSON/XML payloads",
+            "Familiarity with relational databases (SQL) and/or NoSQL stores (e.g., MongoDB, Redis)",
+            "Basic knowledge of version control systems (Git) and collaborative workflows",
+            "Ability to write and execute unit tests; familiarity with testing frameworks",
+            "Comfort working in a Linux/Unix command‑line environment",
+            "Understanding of HTTP protocols, status codes, and basic security concepts (e.g., authentication, HTTPS)"
+        ],
+        "preferred_skills": [
+            "Experience with containerization (Docker) and orchestration (Kubernetes)",
+            "Familiarity with message queues or streaming platforms (e.g., RabbitMQ, Apache Kafka)",
+            "Knowledge of CI/CD pipelines and automation tools (e.g., GitHub Actions, Jenkins, GitLab CI)",
+            "Basic exposure to machine‑learning concepts and how models are served via APIs",
+            "Experience with cloud provider services (AWS, GCP, or Azure) such as compute, storage, and managed databases",
+            "Understanding of microservices architecture and service‑to‑service communication (gRPC, REST)",
+            "Experience with monitoring, logging, and observability tools (e.g., Prometheus, Grafana, ELK stack)",
+            "Familiarity with infrastructure‑as‑code (Terraform, CloudFormation) or configuration management (Ansible, Chef)"
+        ],
+        "tools": [
+            "Programming languages: Python, Java, Go, Node.js",
+            "API frameworks: Flask/FastAPI (Python), Spring Boot (Java), Gin/Echo (Go), Express (Node.js)",
+            "Databases: PostgreSQL, MySQL, MongoDB, Redis",
+            "Version control: Git (GitHub/GitLab/Bitbucket)",
+            "Testing: pytest, JUnit, Go test, Jest",
+            "Containerization: Docker",
+            "Orchestration: Kubernetes",
+            "Message brokers: RabbitMQ, Apache Kafka",
+            "CI/CD: GitHub Actions, GitLab CI, Jenkins",
+            "Monitoring/logging: Prometheus, Grafana, ELK, Datadog",
+            "Cloud SDKs: AWS CLI, GCP SDK, Azure CLI"
+        ],
+        "cloud": [
+            "Compute: AWS EC2, GCP Compute Engine, Azure Virtual Machines",
+            "Managed databases: AWS RDS/Aurora, GCP Cloud SQL, Azure SQL Database",
+            "Object storage: AWS S3, GCP Cloud Storage, Azure Blob Storage",
+            "Serverless (optional): AWS Lambda, GCP Cloud Functions, Azure Functions",
+            "Managed Kubernetes: AWS EKS, GCP GKE, Azure AKS",
+            "Managed messaging: AWS SQS/SNS, GCP Pub/Sub, Azure Service Bus"
+        ],
+        "responsibilities": [
+            "Design, develop, and maintain scalable backend services and APIs that support AI/ML model inference and training workflows",
+            "Integrate backend services with data pipelines, data stores, and third‑party systems",
+            "Write clean, testable code and implement unit/integration tests; participate in code reviews",
+            "Deploy and manage services using containerization and orchestration platforms (Docker/Kubernetes) on cloud infrastructure",
+            "Monitor system performance, troubleshoot production issues, and implement logging/metrics for observability",
+            "Collaborate with data scientists, ML engineers, and frontend developers to define API contracts and data exchange formats",
+            "Ensure security best practices (authentication, authorization, data protection) are followed in service design",
+            "Contribute to CI/CD pipelines to automate build, test, and deployment processes",
+            "Maintain documentation for APIs, deployment procedures, and operational runbooks"
+        ],
+        "sources": []
+    },
+    "AI/ML Engineer": {
+        "required_skills": [
+            "Python programming",
+            "Data manipulation with NumPy and Pandas",
+            "Basic statistics and probability",
+            "Linear algebra fundamentals",
+            "Fundamental machine learning concepts (regression, classification)",
+            "Model evaluation and metrics",
+            "Version control with Git",
+            "Jupyter Notebook usage",
+            "Basic data preprocessing and cleaning"
+        ],
+        "preferred_skills": [
+            "Deep learning frameworks (TensorFlow, PyTorch)",
+            "Neural network architectures (CNNs, RNNs, transformers)",
+            "Natural Language Processing basics",
+            "Reinforcement learning fundamentals",
+            "Data visualization with Matplotlib, Seaborn",
+            "SQL and database querying",
+            "Docker containerization",
+            "CI/CD pipelines (GitHub Actions, GitLab CI)",
+            "Kubernetes or managed orchestration services",
+            "Big data tools (Apache Spark, PySpark)",
+            "AutoML and model explainability (SHAP, LIME)",
+            "Experience with Kaggle competitions"
+        ],
+        "tools": [
+            "Python",
+            "NumPy",
+            "Pandas",
+            "Scikit-learn",
+            "TensorFlow",
+            "PyTorch",
+            "Keras",
+            "Jupyter Notebook / JupyterLab",
+            "Matplotlib",
+            "Seaborn",
+            "SQL client",
+            "Git",
+            "GitHub / GitLab",
+            "Docker",
+            "VS Code",
+            "PyCharm"
+        ],
+        "cloud": [
+            "AWS SageMaker",
+            "AWS S3",
+            "AWS EC2",
+            "AWS Lambda",
+            "GCP AI Platform",
+            "GCP BigQuery",
+            "GCP Cloud Functions",
+            "Azure Machine Learning Studio",
+            "Azure Databricks",
+            "Azure Kubernetes Service (AKS)",
+            "Google Kubernetes Engine (GKE)",
+            "AWS SageMaker Pipelines",
+            "Azure ML Pipelines"
+        ]
+    },
+    "LLM Engineer": {
+        "role": "LLM Engineer",
+        "experience_level": "Entry Level",
+        "category": null,
+        "industry": "Artificial Intelligence",
+        "required_skills": [
+            "Proficiency in Python programming",
+            "Solid understanding of machine learning fundamentals (supervised/unsupervised learning, loss functions, optimization)",
+            "Knowledge of deep learning architectures, especially Transformers and attention mechanisms",
+            "Experience with deep learning frameworks (PyTorch or TensorFlow/Keras)",
+            "Familiarity with NLP concepts (tokenization, embeddings, language modeling)",
+            "Ability to preprocess and clean large text datasets",
+            "Experience fine‑tuning pretrained language models using libraries such as 🤗 Hugging Face Transformers",
+            "Understanding of evaluation metrics for language models (perplexity, BLEU, ROUGE, accuracy, F1, etc.)",
+            "Proficiency with version control systems (Git) and collaborative code platforms (GitHub/GitLab)",
+            "Basic software engineering practices: writing readable, testable code and using IDEs",
+            "Knowledge of containerization (Docker) for reproducible environments",
+            "Awareness of AI safety, bias mitigation, and ethical considerations in LLM deployment"
+        ],
+        "preferred_skills": [
+            "Experience with large‑scale model training or distributed training (e.g., torch.distributed, DeepSpeed, FSDP)",
+            "Familiarity with reinforcement learning from human feedback (RLHF) or instruction tuning pipelines",
+            "Knowledge of parameter‑efficient fine‑tuning methods (LoRA, adapters, prefix‑tuning)",
+            "Experience with model compression/quantization (e.g., GPTQ, AWQ, ONNX runtime)",
+            "Exposure to MLOps tools for experiment tracking and model registry (Weights & Biases, MLflow, DVC)",
+            "Basic understanding of cloud AI services (AWS SageMaker, GCP Vertex AI, Azure Machine Learning)",
+            "Familiarity with Kubernetes or other orchestration platforms for serving models",
+            "Experience with prompt engineering and evaluating LLM behavior via prompting strategies",
+            "Knowledge of data labeling pipelines and active learning techniques",
+            "Understanding of licensing and model card documentation for open‑source LLMs"
+        ],
+        "tools": [
+            "Python (3.8+)",
+            "PyTorch or TensorFlow/Keras",
+            "🤗 Hugging Face Transformers, Datasets, Tokenizers",
+            "NumPy, pandas, scikit‑learn",
+            "Jupyter Notebooks / VS Code / PyCharm",
+            "Git & GitHub/GitLab",
+            "Docker",
+            "Bash / Linux command line",
+            "Experiment tracking: Weights & Biases, MLflow, or TensorBoard",
+            "Model serving: TorchServe, TensorFlow Serving, or FastAPI/Uvicorn",
+            "Profiling/debugging: NVIDIA Nsight, PyTorch Profiler",
+            "Data processing: Apache Spark (basic) or Dask (optional)"
+        ],
+        "cloud": [
+            "AWS (EC2, S3, SageMaker) – basic usage",
+            "Google Cloud Platform (Compute Engine, Cloud Storage, Vertex AI) – basic usage",
+            "Microsoft Azure (VMs, Blob Storage, Azure ML) – basic usage",
+            "Experience with GPU‑enabled instances (e.g., AWS p3/p4, GCP A2, Azure ND series)",
+            "Familiarity with storage solutions for large datasets (S3, GCS, Azure Blob)",
+            "Basic knowledge of serverless functions for lightweight inference (AWS Lambda, Azure Functions) – optional"
+        ],
+        "responsibilities": [
+            "Assist in collecting, cleaning, and preprocessing text corpora for LLM training",
+            "Implement and run experiments to fine‑tune pretrained language models on domain‑specific data",
+            "Monitor training runs, log metrics, and troubleshoot issues (e.g., divergence, OOM)",
+            "Evaluate model performance using appropriate NLP benchmarks and report results",
+            "Help develop data pipelines and versioned datasets for reproducible research",
+            "Contribute to code reviews, maintain coding standards, and improve internal libraries",
+            "Package models and inference code into Docker containers for deployment testing",
+            "Collaborate with senior engineers to integrate LLMs into larger AI products or services",
+            "Stay up‑to‑date with recent LLM research papers and apply relevant techniques",
+            "Participate in discussions about model safety, bias evaluation, and responsible AI practices"
+        ],
+        "sources": []
+    },
+    "Full Stack": {
+        "role": "Full Stack",
+        "experience_level": "2",
+        "category": null,
+        "industry": "IT",
+        "required_skills": [
+            "Proficiency in HTML5 and CSS3",
+            "Strong JavaScript (ES6+) fundamentals",
+            "Experience with at least one front‑end framework/library (React, Angular, or Vue.js)",
+            "Knowledge of back‑end development using a server‑side language (Node.js, Python, Java, C#/.NET, or PHP)",
+            "Understanding of RESTful API design and consumption",
+            "Experience working with relational databases (MySQL, PostgreSQL, SQL Server) or NoSQL stores (MongoDB, DynamoDB)",
+            "Version control with Git (branching, merging, pull requests)",
+            "Basic testing practices (unit/integration tests using Jest, Mocha, JUnit, etc.)",
+            "Familiarity with Agile/Scrum methodologies",
+            "Ability to debug and troubleshoot full‑stack issues"
+        ],
+        "preferred_skills": [
+            "TypeScript proficiency",
+            "Experience with state‑management libraries (Redux, MobX, Vuex)",
+            "Knowledge of GraphQL",
+            "Experience with CSS preprocessors (Sass, Less) or utility‑first frameworks (Tailwind CSS)",
+            "Familiarity with server‑side rendering (Next.js, Nuxt.js) or static site generators",
+            "Experience with containerization (Docker) and orchestration (Kubernetes)",
+            "Understanding of CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins, Azure DevOps)",
+            "Knowledge of authentication/authorization patterns (OAuth, JWT, OpenID Connect)",
+            "Experience with message queues or event‑driven architectures (RabbitMQ, Kafka, SQS)",
+            "Familiarity with testing frameworks for both front‑end (Cypress, Playwright) and back‑end (PyTest, JUnit)"
+        ],
+        "tools": [
+            "Code editors/IDEs (VS Code, WebStorm, IntelliJ)",
+            "Package managers (npm, Yarn, pnpm)",
+            "Build tools (Webpack, Vite, Rollup, Babel)",
+            "API testing tools (Postman, Insomnia)",
+            "Linting/formatting (ESLint, Prettier)",
+            "Project management (Jira, Trello, Azure Boards)"
+        ],
+        "cloud": [
+            "Basic proficiency with at least one major cloud provider (AWS, Azure, or Google Cloud Platform)",
+            "Experience deploying web applications to cloud services (e.g., AWS Elastic Beanstalk, Azure App Service, Google Cloud Run)",
+            "Familiarity with managed databases (Amazon RDS/Aurora, Azure SQL, Cloud SQL)",
+            "Knowledge of object storage (S3, Blob Storage, Cloud Storage)",
+            "Understanding of serverless functions (AWS Lambda, Azure Functions, Cloud Functions)"
+        ],
+        "responsibilities": [
+            "Design, develop, and maintain responsive web applications covering both client‑ and server‑side layers",
+            "Write clean, modular, and well‑documented code following established coding standards",
+            "Create and consume RESTful or GraphQL APIs to integrate front‑end with back‑end services",
+            "Implement UI components using modern front‑end frameworks and ensure cross‑browser compatibility",
+            "Design database schemas, write efficient queries, and manage data migrations",
+            "Participate in code reviews, provide constructive feedback, and uphold quality gates",
+            "Collaborate with product owners, designers, and DevOps to refine requirements and deliver features",
+            "Troubleshoot production issues, perform root‑cause analysis, and apply fixes",
+            "Contribute to CI/CD pipeline configuration and automated testing strategies",
+            "Stay current with emerging web technologies and advocate for continuous improvement"
+        ],
+        "sources": []
+    }
+}
