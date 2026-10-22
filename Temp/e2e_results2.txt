@@ -1,0 +1,203 @@
+﻿python.exe : C:\Users\AKHILA\Desktop\landing page\FINAL YEAR 
+PROJECT\myenv\Lib\site-packages\langchain_nvidia_ai_endpoints\_common.py:250: UserWarning: Found 
+nvidia/nemotron-3.5-super-vl-120b-a12b in available_models, but type is unknown and inference may fail.
+At line:1 char:34
++ ... G = "utf-8"; & ..\myenv\Scripts\python.exe verify_e2e.py 2>&1 | Out-F ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\AKHILA...rence may fail.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+C:\Users\AKHILA\Desktop\landing page\FINAL YEAR 
+PROJECT\myenv\Lib\site-packages\langchain_nvidia_ai_endpoints\chat_models.py:1283: UserWarning: Model 
+'nvidia/nemotron-3.5-super-vl-120b-a12b' is not known to support structured output. Your output may fail at inference 
+time.
+  warnings.warn(
+C:\Users\AKHILA\Desktop\landing page\FINAL YEAR 
+PROJECT\myenv\Lib\site-packages\langchain_nvidia_ai_endpoints\_common.py:250: UserWarning: Found 
+nvidia/nemotron-3.5-super-vl-120b-a12b in available_models, but type is unknown and inference may fail.
+  warnings.warn(
+[Embedding] Loading model: Qwen/Qwen3-Embedding-0.6B
+
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]
+Loading weights:   6%|Γûî         | 18/310 [00:00<00:02, 118.27it/s]
+Loading weights:  10%|Γûë         | 30/310 [00:00<00:02, 118.25it/s]
+Loading weights:  14%|ΓûêΓûÄ        | 42/310 [00:00<00:04, 54.81it/s] 
+Loading weights:  16%|ΓûêΓûî        | 50/310 [00:00<00:04, 54.95it/s]
+Loading weights:  18%|ΓûêΓûè        | 57/310 [00:00<00:04, 55.23it/s]
+Loading weights:  21%|ΓûêΓûê        | 64/310 [00:01<00:04, 54.54it/s]
+Loading weights:  23%|ΓûêΓûêΓûÄ       | 71/310 [00:01<00:04, 51.60it/s]
+Loading weights:  25%|ΓûêΓûêΓûì       | 77/310 [00:01<00:06, 36.35it/s]
+Loading weights:  27%|ΓûêΓûêΓûï       | 84/310 [00:01<00:06, 37.02it/s]
+Loading weights:  29%|ΓûêΓûêΓûë       | 91/310 [00:01<00:05, 40.65it/s]
+Loading weights:  32%|ΓûêΓûêΓûêΓûÅ      | 98/310 [00:01<00:04, 46.05it/s]
+Loading weights:  35%|ΓûêΓûêΓûêΓûî      | 109/310 [00:02<00:03, 59.92it/s]
+Loading weights:  39%|ΓûêΓûêΓûêΓûë      | 122/310 [00:02<00:02, 76.42it/s]
+Loading weights:  42%|ΓûêΓûêΓûêΓûêΓûÅ     | 131/310 [00:02<00:02, 75.88it/s]
+Loading weights:  70%|ΓûêΓûêΓûêΓûêΓûêΓûêΓûê   | 217/310 [00:02<00:00, 276.28it/s]
+Loading weights: 100%|ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê| 310/310 [00:02<00:00, 131.45it/s]
+C:\Users\AKHILA\Desktop\landing page\FINAL YEAR 
+PROJECT\myenv\Lib\site-packages\langchain_nvidia_ai_endpoints\_common.py:250: UserWarning: Found 
+nvidia/nemotron-3.5-super-vl-120b-a12b in available_models, but type is unknown and inference may fail.
+  warnings.warn(
+C:\Users\AKHILA\Desktop\landing page\FINAL YEAR 
+PROJECT\myenv\Lib\site-packages\langchain_nvidia_ai_endpoints\chat_models.py:1283: UserWarning: Model 
+'nvidia/nemotron-3.5-super-vl-120b-a12b' is not known to support structured output. Your output may fail at inference 
+time.
+  warnings.warn(
+
+[1] Register + login
+[Auth] Registered: e2e_1792662231@example.com
+  PASS  register 200
+[Auth] Login: e2e_1792662231@example.com
+  PASS  login 200
+  PASS  /auth/me 200
+  PASS  /auth/me correct email
+
+[2] Career twin status before upload
+  PASS  status 200
+  PASS  has_twin False
+
+[3] Upload resume (full pipeline)
+
+==========================================
+CAREER DIGITAL TWIN
+==========================================
+[1] Loading PDF...
+[2] PDF loaded.
+[3] Resume text extracted.
+[INFO] Resume characters: 3706
+[4] Calling NVIDIA LLM...
+[StructuredLLM] ResumeSchema attempt 1 failed, retrying...
+[StructuredLLM] ValueError: LLM response does not contain JSON
+[StructuredLLM] ResumeSchema attempt 2 failed, retrying...
+[StructuredLLM] Exception: [502] Bad Gateway
+Upstream request failed.
+[5] Resume structured successfully.
+[INFO] Extracted skills: 0
+[INFO] Extracted roles: []
+[Career Twin] Target Role: Software Engineer
+[Career Twin] Getting role knowledge...
+[Role Knowledge] Checking cache for: Software Engineer
+[Role Knowledge] MongoDB CACHE HIT
+[Role Knowledge] Role knowledge ready.
+[Career Twin] Role knowledge ready.
+[Role Knowledge] Required: ['Proficiency in at least one programming language commonly used in AI (e.g., Python, Java, or C++)', 'Strong understanding of data structures, algorithms, and software design principles', 'Experience with version control systems (Git)', 'Ability to write clean, testable code and perform unit testing', 'Familiarity with software development lifecycle and agile methodologies', 'Basic knowledge of machine learning concepts (e.g., supervised vs. unsupervised learning, model training/evaluation)', 'Skill in using common data science libraries (NumPy, pandas, scikit-learn)', 'Comfort working in Linux/Unix commandΓÇæline environment', 'Effective communication and teamwork skills']
+[Role Knowledge] Preferred: ['HandsΓÇæon experience with deep learning frameworks (TensorFlow, PyTorch, or Keras)', 'Exposure to MLOps practices and tools (e.g., MLflow, DVC, Kubeflow)', 'Knowledge of containerization and orchestration (Docker, Kubernetes)', 'Experience with RESTful API design and consumption', 'Familiarity with SQL and/or NoSQL databases (PostgreSQL, MySQL, MongoDB)', 'Basic scripting for automation (Bash, PowerShell)', 'Understanding of cloud services fundamentals (compute, storage, networking)', 'Experience with CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins)']
+[Role Knowledge] Tools: ['IDE/Editor (VS Code, PyCharm, IntelliJ)', 'Git (GitHub, GitLab, Bitbucket)', 'Testing frameworks (pytest, JUnit, unittest)', 'Build tools (Maven, Gradle, pip, conda)', 'Package managers (npm, pip)', 'Debuggers and profilers']
+[Role Knowledge] Cloud: ['Public cloud platforms ΓÇô at least one of: AWS (EC2, S3, Lambda, SageMaker), GCP (Compute Engine, Cloud Storage, AI Platform), Azure (VMs, Blob Storage, Azure ML)', 'Managed services for AI workloads (e.g., AWS SageMaker, Google AI Platform, Azure Machine Learning)', 'InfrastructureΓÇæasΓÇæCode basics (Terraform, CloudFormation)', 'Monitoring and logging tools (CloudWatch, Stackdriver, Azure Monitor)']
+[Career Twin] Starting Skill Gap Agent...
+
+==========================================
+[Skill Gap Agent]
+Target role: Software Engineer
+Current skills: 0
+Required skills: 9
+Preferred skills: 8
+Tools: 6
+Cloud: 4
+==========================================
+[Borderline] No borderline skills.
+[Skill Gap Agent] Workflow completed.
+[Career Twin] Skill Gap Agent completed.
+[Career Twin] Starting Job Opportunities Agent...
+
+[Job Agent] Loading Career Twin preferences
+
+[Job Agent] Search queries:
+    Software Engineer
+    Software Developer
+
+[Job Agent] Fetching: Software Engineer
+Adzuna -> 20
+Jobicy -> 16
+Jooble -> 30
+
+[Job Agent] Fetching: Software Developer
+Adzuna -> 20
+Jobicy -> 12
+Jooble -> 30
+
+[Job Agent] Total jobs: 128
+[Job Agent] Filtered: 31 | dropped (thin extraction): 79
+[Career Twin] Job Opportunities Agent completed.
+[Job Agent] Opportunities found: 20
+[Market Alignment] Score: 45.45
+[Market Alignment] Breakdown: {'role_demand': 100.0, 'skill_demand': None, 'profile_market_match': 0.0, 'location_market_fit': None, 'weights': {'role_demand': 0.25, 'skill_demand': 0.3, 'profile_market_match': 0.3, 'location_market_fit': 0.15}}
+[Career Twin] Market Alignment: 45.45
+
+[Career Twin] Final Career State:
+Readiness: 11.5
+Readiness breakdown: {'skill_coverage': 0.0, 'project_evidence': 0.0, 'experience': 55.0, 'fundamentals': 0.0, 'education': 60.0, 'weights': {'skill_coverage': 0.5, 'project_evidence': 0.2, 'experience': 0.1, 'fundamentals': 0.1, 'education': 0.1}}
+Market Alignment: 45.45
+Required: 9
+Matched: 0
+Missing: 9
+Partial (borderline): 0
+Skill gaps: ['Proficiency in at least one programming language commonly used in AI (e.g., Python, Java, or C++)', 'Strong understanding of data structures, algorithms, and software design principles', 'Experience with version control systems (Git)', 'Ability to write clean, testable code and perform unit testing', 'Familiarity with software development lifecycle and agile methodologies', 'Basic knowledge of machine learning concepts (e.g., supervised vs. unsupervised learning, model training/evaluation)', 'Skill in using common data science libraries (NumPy, pandas, scikit-learn)', 'Comfort working in Linux/Unix commandΓÇæline environment', 'Effective communication and teamwork skills']
+==========================================
+  PASS  career-twin 200
+  PASS  twin has user_id
+  PASS  twin has career_state
+  PASS  twin has skill_gap / gaps
+  PASS  has_twin True after upload
+
+[4] Preferences (JSON accepted)
+  PASS  /preferences 200 (JSON)
+  PASS  target_role saved
+
+[5] Learning roadmap
+
+==========================================
+AGENT 5 - LEARNING ROADMAP
+==========================================
+[Roadmap Agent] Using 9 prioritized gaps from the Career Twin.
+[Roadmap Agent] Roadmap built - 3 phases, 9 skills.
+  PASS  roadmap 200
+  PASS  roadmap success
+  PASS  has phases
+  PASS  roadmap has skills
+        (first skill: Ability to write clean, testable code and perform unit testi...)
+
+[6] Progress tracking
+[Learning Progress] Saved Ability to write clean, testable code and perform unit testing for user 6ad9dad84b986d5398b6bbfa - in_progress
+  PASS  save progress 200
+  PASS  stored under token user
+  PASS  progress count 1
+
+[7] Skill verified + recalculation
+[Learning Progress] Skill Ability to write clean, testable code and perform unit testing marked learned for user 6ad9dad84b986d5398b6bbfa - method: assessment
+[Role Knowledge] MongoDB CACHE HIT
+
+==========================================
+[Skill Gap Agent]
+Target role: Software Engineer
+Current skills: 1
+Required skills: 9
+Preferred skills: 8
+Tools: 6
+Cloud: 4
+==========================================
+[Skill Matching] 1 candidate skills vs 9 required skills
+[Skill Matching] Exact/embedding matched: 1
+[Skill Matching] Borderline: 0
+[Skill Matching] Missing: 8
+[Borderline] No borderline skills.
+[Skill Gap Agent] Workflow completed.
+[Learning] Career Twin recalculated for 6ad9dad84b986d5398b6bbfa
+  PASS  complete 200
+  PASS  verified True
+  PASS  recalculation ran
+
+[8] Cross-user isolation
+[Auth] Registered: e2e2_1792662231@example.com
+  PASS  other user sees no progress
+  PASS  other user has no twin
+  PASS  no token -> 401
+
+[9] Cleanup
+  PASS  test accounts removed
+
+==========================================
+E2E: FULL AUTOMATED FLOW PASSED
+==========================================

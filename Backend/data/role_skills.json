@@ -331,5 +331,58 @@
             "Stay current with emerging web technologies and advocate for continuous improvement"
         ],
         "sources": []
+    },
+    "Software Engineer": {
+        "role": "Software Engineer",
+        "experience_level": "Entry Level",
+        "category": null,
+        "industry": "Artificial Intelligence",
+        "required_skills": [
+            "Proficiency in at least one programming language commonly used in AI (e.g., Python, Java, or C++)",
+            "Strong understanding of data structures, algorithms, and software design principles",
+            "Experience with version control systems (Git)",
+            "Ability to write clean, testable code and perform unit testing",
+            "Familiarity with software development lifecycle and agile methodologies",
+            "Basic knowledge of machine learning concepts (e.g., supervised vs. unsupervised learning, model training/evaluation)",
+            "Skill in using common data science libraries (NumPy, pandas, scikit-learn)",
+            "Comfort working in Linux/Unix command‑line environment",
+            "Effective communication and teamwork skills"
+        ],
+        "preferred_skills": [
+            "Hands‑on experience with deep learning frameworks (TensorFlow, PyTorch, or Keras)",
+            "Exposure to MLOps practices and tools (e.g., MLflow, DVC, Kubeflow)",
+            "Knowledge of containerization and orchestration (Docker, Kubernetes)",
+            "Experience with RESTful API design and consumption",
+            "Familiarity with SQL and/or NoSQL databases (PostgreSQL, MySQL, MongoDB)",
+            "Basic scripting for automation (Bash, PowerShell)",
+            "Understanding of cloud services fundamentals (compute, storage, networking)",
+            "Experience with CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins)"
+        ],
+        "tools": [
+            "IDE/Editor (VS Code, PyCharm, IntelliJ)",
+            "Git (GitHub, GitLab, Bitbucket)",
+            "Testing frameworks (pytest, JUnit, unittest)",
+            "Build tools (Maven, Gradle, pip, conda)",
+            "Package managers (npm, pip)",
+            "Debuggers and profilers"
+        ],
+        "cloud": [
+            "Public cloud platforms – at least one of: AWS (EC2, S3, Lambda, SageMaker), GCP (Compute Engine, Cloud Storage, AI Platform), Azure (VMs, Blob Storage, Azure ML)",
+            "Managed services for AI workloads (e.g., AWS SageMaker, Google AI Platform, Azure Machine Learning)",
+            "Infrastructure‑as‑Code basics (Terraform, CloudFormation)",
+            "Monitoring and logging tools (CloudWatch, Stackdriver, Azure Monitor)"
+        ],
+        "responsibilities": [
+            "Design, implement, and maintain software components that support AI/ML workflows",
+            "Write and review code following team standards and best practices",
+            "Develop unit and integration tests; participate in automated testing pipelines",
+            "Collaborate with data scientists, ML engineers, and product managers to translate models into production‑ready services",
+            "Debug and troubleshoot issues in development, staging, and production environments",
+            "Participate in code reviews, knowledge‑sharing sessions, and agile ceremonies (stand‑ups, sprint planning, retrospectives)",
+            "Help build and improve CI/CD pipelines for model training, validation, and deployment",
+            "Document APIs, data schemas, and deployment procedures",
+            "Stay current with emerging AI technologies, frameworks, and cloud services"
+        ],
+        "sources": []
     }
 }

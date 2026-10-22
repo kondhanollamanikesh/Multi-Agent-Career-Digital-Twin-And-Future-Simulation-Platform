@@ -20,7 +20,7 @@ load_dotenv()
 client = ChatNVIDIA(
     model=os.getenv(
         "NVIDIA_LLM_MODEL",
-        "nvidia/nemotron-3-super-120b-a12b"
+        "nvidia/nemotron-3.5-super-vl-120b-a12b"
     ),
     api_key=os.getenv("NVIDIA_API_KEY"),
     temperature=0.2,
